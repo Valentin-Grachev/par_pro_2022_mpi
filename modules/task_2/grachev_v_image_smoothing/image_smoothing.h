@@ -22,12 +22,12 @@ struct Direction {
 };
 
 class Image {
-   private:
+ private:
     vector<unsigned char> pixels;
     int width;
     int height;
 
-   public:
+ public:
     Image(int _width, int _height);
 
     int GetWidth() const;
