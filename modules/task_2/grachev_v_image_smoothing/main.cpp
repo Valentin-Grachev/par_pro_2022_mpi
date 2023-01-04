@@ -10,7 +10,7 @@ TEST(Image_Smoothing_Mpi, Image_Smoothing_Test1_3x3) {
     double paral_time, seq_time;
 
     if (rank == 0) {
-        Image origin(3,3);
+        Image origin(3, 3);
         origin.FillRandom();
         Image res_sequential = SmoothingSequential(origin, &seq_time);
         Image res_parallel = SmoothingParallel(origin, &paral_time);
@@ -27,7 +27,7 @@ TEST(Image_Smoothing_Mpi, Image_Smoothing_Test2_10x10) {
     double paral_time, seq_time;
 
     if (rank == 0) {
-        Image origin(10,10);
+        Image origin(10, 10);
         origin.FillRandom();
         Image res_sequential = SmoothingSequential(origin, &seq_time);
         Image res_parallel = SmoothingParallel(origin, &paral_time);
@@ -45,7 +45,7 @@ TEST(Image_Smoothing_Mpi, Image_Smoothing_Test3_20x300) {
     double paral_time, seq_time;
 
     if (rank == 0) {
-        Image origin(20,300);
+        Image origin(20, 300);
         origin.FillRandom();
         Image res_sequential = SmoothingSequential(origin, &seq_time);
         Image res_parallel = SmoothingParallel(origin, &paral_time);
@@ -63,7 +63,7 @@ TEST(Image_Smoothing_Mpi, Image_Smoothing_Test4_100x50) {
     double paral_time, seq_time;
 
     if (rank == 0) {
-        Image origin(100,50);
+        Image origin(100, 50);
         origin.FillRandom();
         Image res_sequential = SmoothingSequential(origin, &seq_time);
         Image res_parallel = SmoothingParallel(origin, &paral_time);
@@ -81,7 +81,7 @@ TEST(Image_Smoothing_Mpi, Image_Smoothing_Test5_250x250) {
     double paral_time, seq_time;
 
     if (rank == 0) {
-        Image origin(250,250);
+        Image origin(250, 250);
         origin.FillRandom();
         Image res_sequential = SmoothingSequential(origin, &seq_time);
         Image res_parallel = SmoothingParallel(origin, &paral_time);

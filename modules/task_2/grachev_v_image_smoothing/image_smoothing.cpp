@@ -43,7 +43,7 @@ void Image::Show() {
     for (int i = 0; i < GetWidth() * GetHeight(); i++) {
         if (i % GetWidth() == 0)
             cout << "\n";
-        cout << (int)pixels[i] << "\t";
+        cout << static_cast<int>(pixels[i]) << "\t";
     }
 }
 
@@ -113,8 +113,7 @@ Image SmoothingParallel(const Image &source, double *time) {
 
     vector<Direction> directions = GetDirections();
 
-    if (rank == 0)  // Main process
-    {
+    if (rank == 0) {  // Main process 
         Image result(source.GetWidth(), source.GetHeight());
         int image_size = source.GetHeight() * source.GetWidth();
         int pixels_for_process = image_size / process_count;
