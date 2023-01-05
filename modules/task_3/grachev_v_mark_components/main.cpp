@@ -12,6 +12,7 @@ void TestMarking(int width, int height) {
 
     if (rank == 0) {
         Image image(width, height);
+        image.FillRandomBinary();
         Image result = MarkingParallel(image, &time);
         ASSERT_TRUE(CheckMarking(result));
     } else {
