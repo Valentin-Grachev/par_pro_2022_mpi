@@ -96,10 +96,10 @@ Image GetPreset1() {
     return image;
 }
 
-void MoveCoordVector(vector<Coord> &to, vector<Coord> &from) {
-    for (int i = 0; i < from.size(); i++)
-        to.push_back(from[i]);
-    from.clear();
+void MoveCoordVector(vector<Coord> *to, vector<Coord> *from) {
+    for (int i = 0; i < from->size(); i++)
+        to->push_back(from->operator[](i));
+    from->clear();
 }
 
 Image PreMarking(const Image &source, int *last_mark, int start_mark) {
@@ -110,19 +110,15 @@ Image PreMarking(const Image &source, int *last_mark, int start_mark) {
         for (int x = 0; x < source.GetWidth(); x++) {
             // marked left pixel
             if (source.PixelExists(x - 1, y) &&
-                source.GetPixel(x - 1, y) == 1 && source.GetPixel(x, y) == 1)
+                source.GetPixel(x - 1, y) == 1 && source.GetPixel(x, y) == 1) {
                 premarked_image.SetPixel(x, y,
                                          premarked_image.GetPixel(x - 1, y));
-
-            // marked upper pixel
-            else if (source.PixelExists(x, y - 1) &&
-                     source.GetPixel(x, y - 1) == 1 &&
-                     source.GetPixel(x, y) == 1)
+            } else if (source.PixelExists(x, y - 1) &&
+                       source.GetPixel(x, y - 1) == 1 &&
+                       source.GetPixel(x, y) == 1) {
                 premarked_image.SetPixel(x, y,
                                          premarked_image.GetPixel(x, y - 1));
-
-            // left and upper pixels is not marked
-            else if (source.GetPixel(x, y) == 1) {
+            } else if (source.GetPixel(x, y) == 1) {
                 premarked_image.SetPixel(x, y, current_mark);
                 current_mark++;
             }
@@ -135,8 +131,8 @@ Image PreMarking(const Image &source, int *last_mark, int start_mark) {
 
 Image PostMarking(const Image &premarked_image, int last_mark) {
     vector<vector<Coord>>
-        marked_groups; // marked_groups[i] - get vector with pixel coords which
-                       // have mark number i;
+        marked_groups;  // marked_groups[i] - get vector with pixel coords which
+                        // have mark number i;
     marked_groups.reserve(last_mark + 1);
     for (int i = 0; i <= last_mark; i++) {
         vector<Coord> empty;
@@ -175,11 +171,10 @@ Image PostMarking(const Image &premarked_image, int last_mark) {
         unique_mark_pairs_for_merge.push_back(pair);
 
     for (int i = 0; i < unique_mark_pairs_for_merge.size(); i++) {
-
         int to_mark = unique_mark_pairs_for_merge[i].upper_mark;
         int from_mark = unique_mark_pairs_for_merge[i].lower_mark;
         if (to_mark != from_mark)
-            MoveCoordVector(marked_groups[to_mark], marked_groups[from_mark]);
+            MoveCoordVector(&marked_groups[to_mark], &marked_groups[from_mark]);
         // Update pairs
         for (int j = i + 1; j < unique_mark_pairs_for_merge.size(); j++) {
             if (unique_mark_pairs_for_merge[j].lower_mark == from_mark)
@@ -212,7 +207,6 @@ Image MarkingSequential(const Image &source, double *time) {
 }
 
 Image MarkingParallel(const Image &source, double *time) {
-
     int rank, proc_count;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &proc_count);
@@ -276,7 +270,6 @@ Image MarkingParallel(const Image &source, double *time) {
         return PostMarking(premarked_finish_image, last_mark);
 
     } else {  // Other process
-
         int size, start_mark, dum;
         MPI_Recv(&size, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUSES_IGNORE);
         MPI_Recv(&start_mark, 1, MPI_INT, 0, 1, MPI_COMM_WORLD,

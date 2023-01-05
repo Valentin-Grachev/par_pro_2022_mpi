@@ -56,7 +56,7 @@ class Image {
 
 Image GetPreset1();
 
-void MoveCoordVector(vector<Coord> &to, vector<Coord> &from);
+void MoveCoordVector(vector<Coord> *to, vector<Coord> *from);
 
 Image PreMarking(const Image &source, int *last_mark, int start_mark);
 
