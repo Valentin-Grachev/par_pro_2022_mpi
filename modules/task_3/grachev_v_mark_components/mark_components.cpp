@@ -9,8 +9,7 @@ Image::Image(int _width, int _height) {
         pixels.push_back(0);
 }
 
-Image::Image(const Image &other) {
-    pixels = other.pixels;
+Image::Image(const Image &other) : pixels(other.pixels) {
     width = other.width;
     height = other.height;
 }
