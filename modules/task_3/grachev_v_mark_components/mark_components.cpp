@@ -10,9 +10,9 @@ Image::Image(int _width, int _height) {
 }
 
 Image::Image(const Image &other) {
+    pixels = other.pixels;
     width = other.width;
     height = other.height;
-    pixels = other.pixels;
 }
 
 int Image::GetWidth() const { return width; }
