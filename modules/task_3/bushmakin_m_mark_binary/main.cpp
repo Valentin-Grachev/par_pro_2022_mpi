@@ -26,7 +26,7 @@ TEST(Sobel_Filter_Mpi, Test_3) { MarkTest(27, 13); }
 
 TEST(Sobel_Filter_Mpi, Test_4) { MarkTest(50, 50); }
 
-TEST(Sobel_Filter_Mpi, Test_5) { MarkTest(100, 100) }
+TEST(Sobel_Filter_Mpi, Test_5) { MarkTest(100, 100); }
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
