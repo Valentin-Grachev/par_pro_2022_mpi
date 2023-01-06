@@ -1,6 +1,6 @@
 // Copyright 2022 Chernyshev Nikita
-#ifndef MODULES_TASK_1_CHERNYSHEV_N_RECTANGLE_INTEGRAL_RECTANGLE_INTEGRAL_H_
-#define MODULES_TASK_1_CHERNYSHEV_N_RECTANGLE_INTEGRAL_RECTANGLE_INTEGRAL_H_
+#ifndef MODULES_TASK_1_CHERNYSHEV_N_RECT_INTEGR_RECT_INTEGR_H_
+#define MODULES_TASK_1_CHERNYSHEV_N_RECT_INTEGR_RECT_INTEGR_H_
 
 #include <math.h>
 #include <mpi.h>
@@ -23,4 +23,4 @@ double TrueIntegral_X2(double from, double to);
 double IntegralParallel(double *func_values, double step_size,
                         int val_quantity);
 
-#endif  // MODULES_TASK_1_CHERNYSHEV_N_RECTANGLE_INTEGRAL_RECTANGLE_INTEGRAL_H_
+#endif  // MODULES_TASK_1_CHERNYSHEV_N_RECT_INTEGR_RECT_INTEGR_H_

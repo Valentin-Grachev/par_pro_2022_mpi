@@ -1,6 +1,6 @@
 // Copyright 2022 Chernyshev Nikita
 #include <gtest/gtest.h>
-#include "../../../modules/task_1/chernyshev_n_rectangle_integral/rectangle_integral.h"
+#include "../../../modules/task_1/chernyshev_n_rect_integr/rect_integr.h"
 #include <gtest-mpi-listener.hpp>
 
 
@@ -15,10 +15,6 @@ TEST(Rectangle_Integral_Mpi, Test_1) {
         double *values = FuncValues_Sin(from, to, val_quantity, &step);
         double paral_res = IntegralParallel(values, step, val_quantity);
         ASSERT_TRUE(abs(true_res - paral_res) < 10e-4);
-        if (abs(true_res - paral_res) < 10e-4)
-            cout << "SUCCESS";
-        else
-            cout << "FAILED";
     } else {
         IntegralParallel(nullptr, 0, 0);
     }
@@ -35,10 +31,6 @@ TEST(Rectangle_Integral_Mpi, Test_2) {
         double *values = FuncValues_Sin(from, to, val_quantity, &step);
         double paral_res = IntegralParallel(values, step, val_quantity);
         ASSERT_TRUE(abs(true_res - paral_res) < 10e-5);
-        if (abs(true_res - paral_res) < 10e-5)
-            cout << "SUCCESS";
-        else
-            cout << "FAILED";
     } else {
         IntegralParallel(nullptr, 0, 0);
     }
@@ -55,10 +47,6 @@ TEST(Rectangle_Integral_Mpi, Test_3) {
         double *values = FuncValues_X2(from, to, val_quantity, &step);
         double paral_res = IntegralParallel(values, step, val_quantity);
         ASSERT_TRUE(abs(true_res - paral_res) < 10e-4);
-        if (abs(true_res - paral_res) < 10e-4)
-            cout << "SUCCESS";
-        else
-            cout << "FAILED";
     } else {
         IntegralParallel(nullptr, 0, 0);
     }
@@ -75,10 +63,6 @@ TEST(Rectangle_Integral_Mpi, Test_4) {
         double *values = FuncValues_X2(from, to, val_quantity, &step);
         double paral_res = IntegralParallel(values, step, val_quantity);
         ASSERT_TRUE(abs(true_res - paral_res) < 10e-5);
-        if (abs(true_res - paral_res) < 10e-5)
-            cout << "SUCCESS";
-        else
-            cout << "FAILED";
     } else {
         IntegralParallel(nullptr, 0, 0);
     }
@@ -95,10 +79,6 @@ TEST(Rectangle_Integral_Mpi, Test_5) {
         double *values = FuncValues_X2(from, to, val_quantity, &step);
         double paral_res = IntegralParallel(values, step, val_quantity);
         ASSERT_TRUE(abs(true_res - paral_res) < 10e-5);
-        if (abs(true_res - paral_res) < 10e-5)
-            cout << "SUCCESS";
-        else
-            cout << "FAILED";
     } else {
         IntegralParallel(nullptr, 0, 0);
     }

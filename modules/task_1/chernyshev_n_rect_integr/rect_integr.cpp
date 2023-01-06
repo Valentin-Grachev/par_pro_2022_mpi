@@ -1,5 +1,5 @@
 // Copyright 2022 Chernyshev Nikita
-#include "../../../modules/task_1/chernyshev_n_rectangle_integral/rectangle_integral.h"
+#include "../../../modules/task_1/chernyshev_n_rect_integr/rect_integr.h"
 
 double *FuncValues_Sin(double from, double to, int val_quantity,
                        double *step_size) {
