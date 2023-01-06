@@ -48,7 +48,7 @@ void ByteImage::Print() {
     for (int i = 0; i < Width() * Height(); i++) {
         if (i % Width() == 0)
             cout << "\n";
-        cout << (int)pixels[i] << "\t";
+        cout << static_cast<int>(pixels[i]) << "\t";
     }
 }
 
