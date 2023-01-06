@@ -33,7 +33,7 @@ class ByteImage {
     unsigned char *GetPixelsRows(int from_y_inclusive,
                                  int to_y_exclusive) const;
 
-    bool operator==(const ByteImage &other);
+    bool operator==(const ByteImage &other) const;
 };
 
 unsigned char SobelPixelHandle(vector<unsigned char> around_pixels);

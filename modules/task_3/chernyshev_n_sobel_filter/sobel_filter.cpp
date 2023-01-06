@@ -63,7 +63,7 @@ unsigned char *ByteImage::GetPixelsRows(int from_y_inclusive,
     return data;
 }
 
-bool ByteImage::operator==(const ByteImage &image) {
+bool ByteImage::operator==(const ByteImage &image) const {
     if (pixels == image.pixels)
         return true;
     return false;
