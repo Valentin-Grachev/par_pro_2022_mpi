@@ -1,5 +1,5 @@
 // Copyright 2022 Bushmakin Maxim
-#include "mark_binary.h"
+#include "../../../modules/task_3/bushmakin_m_mark_binary/mark_binary.h"
 
 MarkImage::MarkImage(int _w, int _h) {
     w = _w;
@@ -60,14 +60,13 @@ MarkImage FirstMark(const MarkImage &original, int beginMark) {
     for (int y = 0; y < original.H(); y++) {
         for (int x = 0; x < original.W(); x++) {
             if (original.HasElem(x - 1, y) && original.Elem(x - 1, y) == 1 &&
-                original.Elem(x, y) == 1)
+                original.Elem(x, y) == 1) {
                 res.SetElem(x, y, res.Elem(x - 1, y));
-
-            else if (original.HasElem(x, y - 1) &&
-                     original.Elem(x, y - 1) == 1 && original.Elem(x, y) == 1)
+            } else if (original.HasElem(x, y - 1) &&
+                       original.Elem(x, y - 1) == 1 &&
+                       original.Elem(x, y) == 1) {
                 res.SetElem(x, y, res.Elem(x, y - 1));
-
-            else if (original.Elem(x, y) == 1) {
+            } else if (original.Elem(x, y) == 1) {
                 res.SetElem(x, y, mark);
                 mark++;
             }

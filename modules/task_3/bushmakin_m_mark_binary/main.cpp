@@ -18,13 +18,13 @@ void MarkTest(int w, int h) {
     }
 }
 
-TEST(Sobel_Filter_Mpi, Test_1){MarkTest(3, 5)}
+TEST(Sobel_Filter_Mpi, Test_1) {MarkTest(3, 5)}
 
-TEST(Sobel_Filter_Mpi, Test_2){MarkTest(10, 3)}
+TEST(Sobel_Filter_Mpi, Test_2) {MarkTest(10, 3)}
 
-TEST(Sobel_Filter_Mpi, Test_3){MarkTest(27, 13)}
+TEST(Sobel_Filter_Mpi, Test_3) {MarkTest(27, 13)}
 
-TEST(Sobel_Filter_Mpi, Test_4){MarkTest(50, 50)}
+TEST(Sobel_Filter_Mpi, Test_4) {MarkTest(50, 50)}
 
 TEST(Sobel_Filter_Mpi, Test_5) {
     MarkTest(100, 100)
