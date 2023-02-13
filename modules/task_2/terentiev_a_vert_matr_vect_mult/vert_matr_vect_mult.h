@@ -4,23 +4,10 @@
 
 #include <mpi.h>
 #include <stdio.h>
-
-#include <iostream>
-
-#include <random>
-#include <stdio.h>
 #include <stdlib.h>
-#include <vector>
-
-
-#include <stdlib.h>
-#include <algorithm>
-#include <ctime>
 #include <iostream>
 #include <random>
 #include <vector>
-
-
 
 using std::cout;
 using std::vector;

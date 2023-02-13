@@ -1,12 +1,10 @@
 // Copyright 2023 Alexander Terentiev
-
 #include <gtest/gtest.h>
 #include "../../../modules/task_2/terentiev_a_vert_matr_vect_mult/vert_matr_vect_mult.h"
 #include <gtest-mpi-listener.hpp>
 
 
 void Test(int size) {
-
     int rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 

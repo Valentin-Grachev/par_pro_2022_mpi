@@ -1,3 +1,4 @@
+// Copyright 2023 Alexander Terentiev
 #include "vert_matr_vect_mult.h"
 
 Matrix::Matrix(int n, int m) {
@@ -59,14 +60,12 @@ vector<int> MultipleSequential(const Matrix &matr, const vector<int> &vect) {
 }
 
 vector<int> MultipleParallel(const Matrix &matr, const vector<int> &vect) {
-
     int proc_count;
     MPI_Comm_size(MPI_COMM_WORLD, &proc_count);
     int rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
     if (rank == 0) {  // main process
-
         int cols_for_proc = matr.Col() / proc_count;
         int cols_remainder = matr.Col() % proc_count;
 
@@ -123,7 +122,6 @@ vector<int> MultipleParallel(const Matrix &matr, const vector<int> &vect) {
         return res;
 
     } else {  // other process
-
         int col = 0, str = 0;
         MPI_Recv(&col, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUSES_IGNORE);
         MPI_Recv(&str, 1, MPI_INT, 0, 1, MPI_COMM_WORLD, MPI_STATUSES_IGNORE);
