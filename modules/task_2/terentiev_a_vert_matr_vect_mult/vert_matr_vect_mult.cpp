@@ -1,8 +1,7 @@
 // Copyright 2023 Alexander Terentiev
 #include "../../../modules/task_2/terentiev_a_vert_matr_vect_mult/vert_matr_vect_mult.h"
 
-Matrix::Matrix(int n, int m) {
-    data = vector<int>(n * m);
+Matrix::Matrix(int n, int m) : data(n,m) {
     str = n;
     col = m;
 }
