@@ -1,5 +1,5 @@
 // Copyright 2023 Alexander Terentiev
-#include "vert_matr_vect_mult.h"
+#include "../../../modules/task_2/terentiev_a_vert_matr_vect_mult/vert_matr_vect_mult.h"
 
 Matrix::Matrix(int n, int m) {
     data = vector<int>(n * m);
