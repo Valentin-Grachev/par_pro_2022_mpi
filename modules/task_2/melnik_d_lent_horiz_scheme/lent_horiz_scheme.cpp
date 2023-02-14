@@ -100,9 +100,7 @@ vector<int> Parallel(const Matrix &originMatrix,
         }
 
         return result;
-    }
-
-    else {
+    } else {
         int lines;
         int columns;
         MPI_Recv(&lines, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUSES_IGNORE);

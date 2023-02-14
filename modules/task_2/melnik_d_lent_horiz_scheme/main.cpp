@@ -16,9 +16,7 @@ void TestTask(int size) {
         vector<int> par = Parallel(matr, vect);
 
         ASSERT_EQ(seq, par);
-    }
-
-    else {
+    } else {
         Matrix m(1, 1);
         vector<int> v(1);
         Parallel(m, v);
